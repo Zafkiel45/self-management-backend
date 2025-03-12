@@ -3,14 +3,13 @@
   "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "^1.2.4",
-    "drizzle-kit": "^0.30.5"
+    "@types/bun": "^1.2.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "drizzle-orm": "^0.40.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jose": "^6.0.8"
   }

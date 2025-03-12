@@ -175,3 +175,5 @@ dist
 .DS_Store
 # Local Database:
 src/database
+*.sqlite
+*.db
