@@ -1,4 +1,4 @@
-export function authCors(req: any, res: any, next: any) {
+export function setBasicCorsConfiguration(req: any, res: any, next: any) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Headers', 'content-type');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');

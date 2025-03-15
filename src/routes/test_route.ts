@@ -1,8 +1,8 @@
 import express from 'express';
-import { authCors } from '../middlewares/cors';
+import { setBasicCorsConfiguration } from '../middlewares/cors';
 export const testRoute = express.Router();
 
-testRoute.use(authCors);
+testRoute.use(setBasicCorsConfiguration);
 
 testRoute.get('/', (req, res) => {
     console.log(res.sendStatus(200));
