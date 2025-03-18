@@ -1,3 +1,4 @@
+import './database/migrations';
 import express from 'express';
 // routes
 import { testRoute } from './routes/test_route';
