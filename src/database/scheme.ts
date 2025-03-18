@@ -1,8 +1,9 @@
 import 'dotenv/config';
 import { Database } from "bun:sqlite";
 
-const db = new Database(process.env.DB_FILE_NAME, {
+const db = new Database(process.env.DB_FILE_PATH, {
     strict: true,
+    create: true,
 });
 
 db.run(`
