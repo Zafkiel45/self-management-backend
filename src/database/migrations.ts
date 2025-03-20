@@ -3,13 +3,13 @@ import { db } from "./connection";
 db.run(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name CHAR NOT NULL,
+      name CHAR NOT NULL UNIQUE,
       password CHAR NOT NULL
     )
 `);
 
 /*
-    I did not why, but put in a comman in the final item of CREATE TABLE 
+    I did not why, but put in a comma in the final item of CREATE TABLE 
     generate an error. 
 */
 
