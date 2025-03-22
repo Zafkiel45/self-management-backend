@@ -8,13 +8,14 @@ export const registerUser = async (user: string, password: string) => {
         `);
 
     const transaction = db.transaction((user, password) => {
-      insertQuery.run({
+      return insertQuery.run({
         name: user,
         password: password,
       });
     });
 
-    transaction(user, (await hashingPassword(password)));
+    return transaction(user, (await hashingPassword(password)));
+
   } catch (err) {
     console.error(err);
   }
