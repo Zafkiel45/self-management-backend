@@ -3,7 +3,7 @@ import { registerUser } from "../services/user.services";
 
 import type { Request, Response } from "express";
 import type { authUser } from "../models/user.models";
-import { generateWebToken } from "../utils/genera_jwt";
+import { generateWebToken } from "../utils/generate_jwt";
 
 interface lastQueryInserted {
   lastInsertRowid: number;
@@ -30,11 +30,26 @@ export const controllerRegister = async (req: Request, res: Response) => {
           password
         );
 
-        const payload = JSON.stringify({user: queryMetadata});
-        res.setHeader("Set-cookie", `payload=${await generateWebToken(payload)}; HttpOnly; SameSite=None; Secure; Path=/`);
-        res.sendStatus(200) // ok
-    };
-    };
+        const payload = JSON.stringify({ user: queryMetadata });
+        res.setHeader(
+          "Set-cookie",
+          `payload=${await generateWebToken(
+            payload
+          )}; HttpOnly; SameSite=None; Secure; Path=/`
+        );
+        res.sendStatus(200); // ok
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const checkLogin = (req: Request, res: Response) => {
+  try {
+    const { cookies } = req;
+    console.log(cookies);
+    res.sendStatus(200);
   } catch (err) {
     console.error(err);
   }
