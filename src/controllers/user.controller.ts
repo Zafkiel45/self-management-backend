@@ -35,7 +35,7 @@ export const controllerRegister = async (req: Request, res: Response) => {
           "Set-cookie",
           `payload=${await generateWebToken(
             payload
-          )}; HttpOnly; SameSite=None; Secure; Path=/`
+          )}; HttpOnly; SameSite=None; Secure; Path=/; Max-Age=7200;`
         );
         res.sendStatus(200); // ok
       }
